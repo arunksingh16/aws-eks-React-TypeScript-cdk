@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+  namespace: default
+spec:
+  selector:
+    app: react  # Match this with the labels on your frontend pod
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80  # The port your container is listening on
+  type: ClusterIP  # The service type that will be exposed via Ingress
